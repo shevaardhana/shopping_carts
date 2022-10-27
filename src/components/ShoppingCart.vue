@@ -2,6 +2,19 @@
     <v-card>
         <v-card-title>
             <h4>Shopping Cart</h4>
+            <v-spacer></v-spacer>
+
+            <v-btn
+            color="cyan"
+            @click="reload();"
+            class="white--text"
+            >
+                <v-icon
+                >
+                    mdi-reload
+                </v-icon>
+                Reload
+            </v-btn>
         </v-card-title>
 
         <v-card-text>
@@ -76,9 +89,14 @@ export default {
             var total = 0
 
             this.itemCarts.forEach(element => {
-                total += element.price;
+                total += element.price * element.qty;
             });
-             return total
+
+            return total
+        },
+
+        reload(){
+            location.reload()
         }
     }
 

@@ -96,23 +96,12 @@ export default {
 
         },
 
-        mounted() {
-            if (localStorage.getItem('itemCarts')) {
-                try {
-                    this.itemCarts = JSON.parse(localStorage.getItem('itemCarts'));
-                } catch(e) {
-                    localStorage.removeItem('itemCarts');
-                }
-            }
-        },
-
         addCart (data) {
 
             data.qty = 1
             this.itemCarts.push(data)
             localStorage.setItem("itemCarts", JSON.stringify(this.itemCarts));
 
-            location.reload()
         },
     }
     
